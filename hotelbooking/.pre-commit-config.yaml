@@ -1,0 +1,23 @@
+   repos:
+   -   repo: https://github.com/pre-commit/pre-commit-hooks
+       rev: v4.4.0  # Используйте последнюю версию!
+       hooks:
+       -   id: trailing-whitespace  # Удаляет лишние пробелы в конце строк
+       -   id: end-of-file-fixer  # Обеспечивает наличие пустой строки в конце файла
+       -   id: check-yaml  # Проверяет синтаксис YAML-файлов
+       -   id: check-added-large-files  # Предотвращает добавление больших файлов в репозиторий
+   -   repo: https://github.com/psf/black
+       rev: 23.7.0  # Используйте последнюю версию!
+       hooks:
+       -   id: black  # Форматирует код в соответствии со стилем Black
+   -   repo: https://github.com/pycqa/flake8
+       rev: 6.0.0  # Используйте последнюю версию!
+       hooks:
+       -   id: flake8  # Проверяет код на соответствие PEP 8 и другие ошибки
+           args: ["--max-line-length=120"] # Пример настройки flake8 (максимальная длина строки)
+   -   repo: https://github.com/pre-commit/mirrors-mypy
+       rev: v1.4.1 # Используйте последнюю версию!
+       hooks:
+       -   id: mypy  # Статическая проверка типов с помощью mypy
+           exclude: ^(tests/|scripts/) # Исключает каталоги tests/ и scripts/ из проверки
+           args: [--ignore-missing-imports, --follow-imports=silent] # Дополнительные аргументы для mypy
